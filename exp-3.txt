@@ -1,0 +1,61 @@
+import React from "react";
+import './App.css';
+
+const students = [
+  { sid: "101", sname: "Teja", cgpa: "9.38",  },
+  { sid: "102", sname: "Hari", cgpa: "8.38",  },
+  { sid: "103", sname: "Sri", cgpa: "9.68",  },
+  { sid: "104", sname: "Sai", cgpa: "7.38",  },
+  { sid: "105", sname: "Prem", cgpa: "9.48",  }
+];
+
+class App extends React.Component {
+  render() {
+    return (
+      <center>
+        <Header msg="Student Details" />
+        <table border="5" cellPadding={10}>
+          <thead style={{ color: "#2b42c7ff" }}>
+            <tr>
+              <th>StudentID</th>
+              <th>StudentName</th>
+              <th>CGPA</th>
+              <th>Percentage</th>
+            </tr>
+          </thead>
+          <tbody>
+            {students.map(student => (
+              <Student
+                key={student.sid}
+                sid={student.sid}
+                name={student.sname}
+                cgpa={student.cgpa}
+              />
+            ))}
+          </tbody>
+        </table>
+      </center>
+    );
+  }
+}
+
+class Header extends React.Component {
+  render() {
+    return <h1>{this.props.msg}</h1>;
+  }
+}
+
+class Student extends React.Component {
+  render() {
+    return (
+      <tr>
+        <td>{this.props.sid}</td>
+        <td>{this.props.name}</td>
+        <td>{this.props.cgpa}</td>
+        <td>{parseInt(this.props.cgpa)*9.5}</td>
+      </tr>
+    );
+  }
+}
+
+export default App;

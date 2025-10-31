@@ -1,0 +1,49 @@
+
+function App(){
+  return (
+    <>
+    <center>
+      <Header/>
+      <table border="5" cellPadding={10}>
+        <thead style={{color:"#2b42c7ff"}}>
+         <th>
+          EmpID
+        </th>
+        <th>
+         EmpName 
+        </th>
+        <th>
+          EmpSalary
+        </th>
+        <th>
+          EmpDept
+        </th>
+        </thead>
+        
+        <Emp eid="101" name="Raja" esl="100000" dept="IT"/>
+         <Emp eid="102" name="Kavya" esl="200000" dept="HR"/>
+          <Emp eid="103" name="Sai" esl="150000" dept="IT"/>
+            <Emp eid="104" name="Harish" esl="200000" dept="HR"/>
+          <Emp eid="105" name="Suresh" esl="150000" dept="IT"/>
+      </table>
+    </center>
+    </>
+  );
+}
+function Header(){
+  return(
+    <h1 style={{color:"#e93e20e0"}}>Employee Details</h1>
+  );
+}
+function Emp(props){
+  return(
+    <tr>
+    <td>{props.eid}</td>
+    <td>{props.name}</td>
+    <td>{props.esl}</td>
+    <td>{props.dept}</td>
+  </tr>
+  )
+  
+}
+export default App;

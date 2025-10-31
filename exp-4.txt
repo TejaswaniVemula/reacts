@@ -1,0 +1,100 @@
+import './App.css'
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import Blog from'./Pages/Blog.js'
+import Contact from'./Pages/Contact.js'
+import Home from './Pages/Home.js'
+import Layout from './Pages/Layout.js'
+function App(){
+  return(
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout/>}></Route>
+        <Route index element={<Home/>}></Route>
+        <Route path="Contact" element={<Contact/>}></Route>
+        <Route path="Blog" element={<Blog/>}></Route>
+      </Routes>
+    </Router>
+  )
+}
+export default App;
+
+import Card from './Card.js'
+function Blog(){
+    return(
+        <>
+        <h2>
+            Blog Page
+        </h2>
+        <Card/>
+        <Card/>
+        <Card/>
+        </>
+    )
+}
+export default Blog;
+
+function Contact(){
+    return(
+        <>
+        <h2>
+            Contact Page
+        </h2>
+        </>
+    )
+}
+export default Contact;
+
+import Layout from "./Layout";
+
+function Home(){
+    return(
+        <>
+        <h2>Home Page</h2>
+        <Layout/>
+        </>
+    )
+}
+export default Home;
+
+import {Link,Outlet} from 'react-router-dom'
+const style = {
+  backgroundColor: '#6acfc7ff',
+  fontSize: '16px',
+  padding: '10px',
+  borderRadius: '5px',
+  color: '#ecdede34',
+  display: 'flex',
+  gap: '20px', 
+  alignItems: 'center', 
+  
+};
+
+function Layout(){
+    return(
+        <>
+        <div>
+            
+            <nav style={style}>
+                <Link to="/" className='nav-link'>Home</Link>
+                <Link to="Blog" className='nav-link'>Blog</Link>
+                <Link to="Contact" className='nav-link'>Contact</Link>
+            </nav>
+            <Outlet/>
+        </div>
+        </>
+    )
+}
+export default Layout;
+body{
+  background-color: rgb(187, 207, 207);
+  color: brown;
+}
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.nav-link:hover {
+  color: #ffcc00;
+}

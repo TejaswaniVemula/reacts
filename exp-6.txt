@@ -1,0 +1,58 @@
+import './App.css';
+import React, { Component } from 'react';
+class App extends Component 
+{
+  constructor() 
+  {
+    super();
+    this.state= 
+    {
+      employe: 
+      [
+        { eid: "101",ename:"raj",esal:"50000",des:"clerk"},
+        { eid: "102",ename:"ram",esal:"55000",des:"manager"},
+        { eid: "103",ename:"ravi",esal:"68000",des:"admin"},
+      ],
+    };
+  }
+  render() 
+  {
+    return (
+      <>
+        <center>
+          <Header/>
+          <table border="5">
+            <tbody>
+              {this.state.employe.map((emp,i)=>(
+                <EmpList key={i} data={emp}/>
+              ))}
+            </tbody>
+          </table>
+        </center>
+      </>
+    );
+  }
+}
+class Header extends Component 
+{
+  render() 
+  {
+    return <h1>Employee Details</h1>;
+  }
+}
+class EmpList extends Component 
+{
+  render() 
+  {
+    const {eid,ename,esal,des}=this.props.data;
+    return (
+      <div style={{border:"5px solid #c5a5a5ff"}}>
+        <p>Employee Id :{eid}</p>
+        <p>Employee Name :{ename}</p>
+        <p>Employee Salary :{esal}</p>
+        <p>Employee Designation :{des}</p>
+      </div>
+    );
+  }
+}
+export default App;
